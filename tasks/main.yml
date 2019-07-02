@@ -21,7 +21,7 @@
 
 - name: Append to the environment block
   set_fact:
-    b1: '{{ b1 }} + [''{{ item }}="localhost,127.0.0.1,localaddress,.localdomain.com"'']'
+    b1: '{{ b1 }} + [''{{ item }}="localhost,127.0.0.1,localaddress,.localdomain.com,{{ proxy.noproxy }}"'']'
   with_items:
     - no_proxy
     - NO_PROXY
@@ -32,6 +32,7 @@
     block: "{{ b1 | join('\n') }}"
     insertafter: EOF
     marker: "# {mark} ANSIBLE MANAGED BLOCK - PROXY"
+    create: yes
   become: true
 
 #

@@ -13,11 +13,12 @@ Available on Ansible Galaxy: [pgkehle.proxy-setup](https://galaxy.ansible.com/pg
   
     vars:
       proxy:
-        addr:   my.fqdn
-        port:   3128
+        addr:    my.fqdn
+        port:    3128
+        noproxy: 10.20.1.0/24
   
     roles:
-      - pgkehle.proxy-setup
+      - ansible-proxy-setup
 ```
 
 ## License
